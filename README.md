@@ -84,3 +84,28 @@ Ejemplo rápido usando `curl`:
 curl http://127.0.0.1:8000/obtener_cedula
 ```
 
+**Despliegue continuo en Render (GitHub Actions)**
+
+Este repositorio incluye un workflow de GitHub Actions (`.github/workflows/deploy_to_render.yml`) que dispara un despliegue en Render cada vez que se hace push a la rama `main`.
+
+Requisitos en Render:
+- Crea una cuenta en https://render.com y añade un nuevo **Web Service**. Selecciona desplegar desde GitHub y configura el servicio para usar el `Dockerfile` del repositorio (o usar el entorno de Python si lo prefieres).
+- Copia el **Service ID** del servicio (lo necesitas para la API).
+- Genera una API key en Render (Dashboard → Account → API Keys).
+
+Configura secrets en tu repositorio GitHub:
+- `RENDER_API_KEY` — tu API key de Render
+- `RENDER_SERVICE_ID` — el Service ID de tu Web Service en Render
+
+El workflow hace lo siguiente:
+1. En push a `main`, crea un deploy mediante la API de Render (`POST /v1/services/{service_id}/deploys`).
+2. Obtiene el `deploy_id` y hace polling consultando el estado del deploy hasta que el despliegue esté `active` o falle.
+
+Para activar el despliegue continuo:
+1. Sube tus cambios y haz push a `main`.
+2. En GitHub Actions verás el job `Deploy to Render` que activará el deploy en Render.
+
+Notas:
+- Asegúrate de que `RENDER_API_KEY` y `RENDER_SERVICE_ID` estén configurados en `Settings → Secrets and variables → Actions` del repositorio.
+- Si prefieres, puedes conectar Render directamente con el repositorio desde su panel y usar la integración visual en lugar del trigger por API.
+
