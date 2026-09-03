@@ -12,7 +12,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/obtener_cedula",
+          "raw": "{{base_url}}/obtener_cedula", 
           "host": [
             "{{base_url}}"
           ],

@@ -19,4 +19,4 @@ def swagger_static():
     file_path = os.path.join(os.getcwd(), 'swagger.html')
     if not os.path.exists(file_path):
         return {"error": "swagger.html no encontrado en la raíz del proyecto"}
-    return FileResponse(file_path, media_type='text/html')
+    return FileResponse(file_path, media_type='text/html') 

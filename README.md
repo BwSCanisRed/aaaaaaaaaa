@@ -53,7 +53,7 @@ Cómo ejecutar con Docker
 
 Requisitos: Docker Desktop instalado y corriendo.
 
-Desde la raíz del proyecto (`c:\Users\CSI\Desktop\TALLERDOCKER`) ejecuta:
+Desde la raíz del proyecto (`c:\Users\CSI\Desktop\TALLERDOCKER`) ejecuta: 
 
 ```powershell
 docker compose up --build -d
