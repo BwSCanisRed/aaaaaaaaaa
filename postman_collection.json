@@ -1,0 +1,54 @@
+{
+  "info": {
+    "name": "Obtener Cedula API",
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef0123456789",
+    "description": "Colección para probar el endpoint GET /obtener_cedula",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET obtener_cedula",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/obtener_cedula",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "obtener_cedula"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Ejemplo éxito",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/obtener_cedula",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "obtener_cedula"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{ \"cedula\": 1234567890 }"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    }
+  ]
+}

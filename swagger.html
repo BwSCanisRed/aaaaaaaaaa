@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swagger UI - Obtener Cedula</title>
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@4/swagger-ui.css" />
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      #swagger-ui { height: 100vh; }
+    </style>
+  </head>
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="https://unpkg.com/swagger-ui-dist@4/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist@4/swagger-ui-standalone-preset.js"></script>
+    <script>
+      // URL del OpenAPI generado por FastAPI
+      const openapiUrl = '/openapi.json';
+
+      // Inicializa Swagger UI apuntando a la URL del OpenAPI
+      window.ui = SwaggerUIBundle({
+        url: openapiUrl,
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: 'StandaloneLayout'
+      });
+
+      // Mensaje de ayuda si la carga falla (por ejemplo se abre el archivo localmente sin servidor)
+      window.ui.initOAuth && window.ui.initOAuth();
+      window.addEventListener('error', () => {
+        const el = document.getElementById('swagger-ui');
+        if (el && el.children.length === 0) {
+          el.innerHTML = '<div style="padding:24px;font-family:Arial">No se pudo cargar <code>/openapi.json</code>. Asegúrate de que el servidor esté en ejecución (uvicorn) o abre este HTML desde el servidor.\n<br/>Si quieres un HTML completamente estático, reemplaza la variable <code>openapiUrl</code> por la ruta absoluta a un archivo `openapi.json` exportado.</div>';
+        }
+      });
+    </script>
+  </body>
+</html>
