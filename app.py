@@ -79,3 +79,29 @@ def obtener_numero_romano() -> str:
     """Devuelve un número romano aleatorio entre 50 y 100."""
     numero = randint(50, 100)
     return to_roman(numero)
+
+@app.get("/obtener_ciudad")
+def obtener_ciudad():
+    """Devuelve una ciudad aleatoria de Colombia.
+
+    Respuesta JSON: { "ciudad": "Bogotá", "departamento": "Cundinamarca" }
+    """
+    ciudades = [
+        {"ciudad": "Bogotá", "departamento": "Cundinamarca"},
+        {"ciudad": "Medellín", "departamento": "Antioquia"},
+        {"ciudad": "Cali", "departamento": "Valle del Cauca"},
+        {"ciudad": "Barranquilla", "departamento": "Atlántico"},
+        {"ciudad": "Cartagena", "departamento": "Bolívar"},
+        {"ciudad": "Bucaramanga", "departamento": "Santander"},
+        {"ciudad": "Pereira", "departamento": "Risaralda"},
+        {"ciudad": "Manizales", "departamento": "Caldas"},
+        {"ciudad": "Ibagué", "departamento": "Tolima"},
+        {"ciudad": "Santa Marta", "departamento": "Magdalena"},
+        {"ciudad": "Neiva", "departamento": "Huila"},
+        {"ciudad": "Villavicencio", "departamento": "Meta"},
+        {"ciudad": "Cúcuta", "departamento": "Norte de Santander"},
+        {"ciudad": "Sincelejo", "departamento": "Sucre"},
+        {"ciudad": "Montería", "departamento": "Córdoba"}
+    ]
+    eleccion = random.choice(ciudades)
+    return eleccion

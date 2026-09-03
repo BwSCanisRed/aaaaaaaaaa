@@ -43,6 +43,44 @@
         }
       ]
     }
+    ,
+    {
+      "name": "GET obtener_ciudad",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/obtener_ciudad",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "obtener_ciudad"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Ejemplo éxito",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/obtener_ciudad",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "obtener_ciudad"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "body": "{ \"ciudad\": \"Bogotá\", \"departamento\": \"Cundinamarca\" }"
+        }
+      ]
+    }
   ],
   "variable": [
     {
